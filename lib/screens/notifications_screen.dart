@@ -1,79 +1,104 @@
 import 'package:flutter/material.dart';
 import '../values/values.dart';
+import '../models/notification.dart';
 
 class NotificationsScreen extends StatelessWidget {
+ 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        constraints: BoxConstraints.expand(),
-        decoration: BoxDecoration(
-          color: Color.fromARGB(255, 255, 255, 255),
-        ),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 0),
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-            color: AppColors.secondaryBackground,
-            // border: Border.fromBorderSide(Borders.primaryBorder),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 40, bottom: 10,left: 20,right:20),
-                width: MediaQuery.of(context).size.width,
-                height: 35,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          width: 22,
-                          height: 10,
-                          margin: EdgeInsets.only(top: 14),
-                          child: Image.asset(
-                            "assets/images/shape-4.png",
-                            fit: BoxFit.none,
+      appBar: AppBar(title: Text('Notification'),backgroundColor: AppColors.secondaryBackground,centerTitle: true,),
+      body:
+          ListView.builder(itemCount:notificationList.length,itemBuilder: (ctx,index){
+            return Container(
+
+              color: Color.fromRGBO(228, 233, 237, 1),
+              child: Column(
+                
+                children: <Widget>[
+                  ListTile(
+
+                      leading: Container(
+                          width: 63,
+                          height: 103,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
+                              topLeft: Radius.circular(10),
+                              topRight:Radius.circular(10),
+                            ),
+                            child: Image.asset("assets/images/${notificationList[index].image}"),
                           ),
                         ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Container(
-                        margin: EdgeInsets.only(left: 70,top:5),
-                        child: Text(
-                          "Notifications",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 249, 249, 249),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 30,
+                    title:Row(
+mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+                          padding:EdgeInsets.only(bottom: 10),
+                          child: Text(
+                                notificationList[index].name,
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  color: AppColors.secondaryBackground,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 20,
+                                  letterSpacing: -0.32,
+                                ),
+                              ),
+
+                        ),
+                        Container(
+
+                          margin: EdgeInsets.only(bottom: 16),
+
+                          child: CircleAvatar(
+                            backgroundColor: notificationList[index].color,
+                            radius: 4,
+
+
+
                           ),
                         ),
-                      ),
+//                        CircleAvatar(backgroundColor: notificationList[index].color,)
+//                      Container(child: BoxDecoration(borderRadius: ),)
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  child: Image.asset(
-                    'assets/images/notifications.png',
-                    fit: BoxFit.fill,
+
+                    subtitle:  Text(
+                              notificationList[index].noti,
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                color: AppColors.secondaryBackground,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                                letterSpacing: -0.2,
+                              ),),
+//trailing: CircleAvatar(backgroundColor: notificationList[index].color,),
                   ),
-                ),
-              )
-            ],
-          ),
+
+              Container(
+
+                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      width: 450,
+                      height: 3,
+                      margin: EdgeInsets.only(left: 1, top: 20,bottom: 20),
+                      child: Image.asset(
+                        "assets/images/line-1.png",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                ],
+              ),
+            );
+
+          }
+
         ),
-      ),
+
+
+
     );
   }
 }
