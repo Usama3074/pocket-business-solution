@@ -6,6 +6,7 @@ class EditEmployee extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(centerTitle: true,title: Text('Edit Employee'),backgroundColor:  Color.fromARGB(255, 83, 111, 247),),
       body: Container(
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
@@ -52,31 +53,34 @@ class EditEmployee extends StatelessWidget {
                             child: Container(),
                           ),
                         ),
+
+
                         Positioned(
                           left: 29,
-                          top: 30,
-                          right: 58,
-                          bottom: 27,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                          top: 0,
+                          right: 30,
+                          bottom: 20,
+                          child: ListView(
+                            scrollDirection: Axis.vertical,
+//                            crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Container(
-                                    width: 23,
-                                    height: 11,
-                                    margin: EdgeInsets.only(top: 10, left: 1),
-                                    child: Image.asset(
-                                      "assets/images/shape-2.png",
-                                      fit: BoxFit.none,
-                                    ),
-                                  ),
-                                ),
-                              ),
+//                              Align(
+//                                alignment: Alignment.topLeft,
+//                                child: InkWell(
+//                                  onTap: () {
+//                                    Navigator.of(context).pop();
+//                                  },
+//                                  child: Container(
+//                                    width: 23,
+//                                    height: 11,
+//                                    margin: EdgeInsets.only(top: 10, left: 1),
+//                                    child: Image.asset(
+//                                      "assets/images/shape-2.png",
+//                                      fit: BoxFit.none,
+//                                    ),
+//                                  ),
+//                                ),
+//                              ),
                               Align(
                                 alignment: Alignment.topCenter,
                                 child: Container(
@@ -352,23 +356,7 @@ class EditEmployee extends StatelessWidget {
                 ],
               ),
             ),
-            Positioned(
-              top: 40,
-            
-              child: Container(
-                 margin: EdgeInsets.only(right: 20),
-                child: Text(
-                  "Edit Employee",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 252, 252, 252),
-                    fontWeight: FontWeight.w400,
-                    fontSize: 21,
-                    letterSpacing: -0.21,
-                  ),
-                ),
-              ),
-            ),
+
           ],
         ),
       ),

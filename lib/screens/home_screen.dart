@@ -221,15 +221,31 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-
+//ListView(
+//  scrollDirection: Axis.horizontal,
+//  children: <Widget>[
+//    Container(
+//      width: 160.0,
+//      color: Colors.red,
+//      child: Column(
+//        children: <Widget>[
+//
+//        ],
+//      ),
+//    ),
+//  ],
+//)
             Container(
               height: 59,
-          
+
              
 
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child:
+
+              ListView(
+                scrollDirection: Axis.horizontal,
+//                crossAxisAlignment: CrossAxisAlignment.stretch,
+//                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   singleTab(
                     image: 'assets/images/icons8-human-resources-100-1.png',
